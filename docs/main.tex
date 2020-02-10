@@ -1,0 +1,119 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+
+% Larger borders -- we do not want do waste paper, even if it is only paper on screen =)
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+% Remove auto indentation of paragraphs.
+\setlength\parindent{0pt}
+
+% Palatino font (nicer serif font: Times is for oldies)
+%\renewcommand*\rmdefault{ppl}
+
+% Nested itemize list bullet style
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemiii}{--}
+
+% Math packages
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% Graphic packages
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{tikz}
+\usepackage{forest,array}
+\usetikzlibrary{shadows}
+
+
+% Graphs styles
+\forestset{
+  giombatree/.style={
+    for tree={
+      grow = east,
+      parent anchor=east,
+      child anchor=west,
+      edge={rounded corners=2mm},
+      fill=violet!5,
+      drop shadow,
+      l sep=10mm,
+      edge path={
+        \noexpand\path [draw, \forestoption{edge}] (!u.parent anchor) -- +(5mm,0) -- (.child anchor)\forestoption{edge label};
+      }
+    }
+  }
+}
+\forestset{
+  qtree/.style={
+    for tree={
+      parent anchor=south,
+      child anchor=north,
+      align=center,
+      edge={rounded corners=2mm},
+      fill=violet!5,
+      drop shadow,
+      l sep=10mm,
+    }
+  }
+}
+
+% BAN logic macros
+\newcommand{\believes}{\mid\!\equiv}
+\newcommand{\sees}{\triangleleft}
+\newcommand{\oncesaid}{\mid\!\sim}
+\newcommand{\controls}{\Rightarrow}
+\newcommand{\fresh}[1]{\#(#1)}
+\newcommand{\combine}[2]{{\langle #1 \rangle}_{#2}}
+\newcommand{\encrypt}[2]{{ \{ #1 \} }_{#2}}
+\newcommand{\sharekey}[1]{\xleftrightarrow{#1}}
+\newcommand{\pubkey}[1]{\xmapsto{#1}}
+\newcommand{\secret}[1]{\xleftrightharpoons{#1}}
+
+\newcommand{\projectname}{CDMA Receiver}
+\newcommand{\projectnameabbr}{CDMA Rec}
+
+% Hides ugly links from the index
+\usepackage[hidelinks]{hyperref}
+% Landscape format pdf pagess
+\usepackage{pdflscape}
+
+\begin{document}
+\pagenumbering{gobble}
+
+{\setstretch{1.0}
+  \begin{titlepage}
+  	\centering
+  	\includegraphics[width=6cm]{img/unipi.pdf}\par
+    \vspace{1.5cm}
+    {\Large Dipartimento di Ingegneria Dell'Informazione \par}
+  	\vspace{1.5cm}
+  	{\huge\textsc{\projectname{}}\par}
+    \vspace{0.5cm}
+    {\Large Progetto di Electronics and Comminications Systems \par}
+  	\vspace{2cm}
+  	Amedeo \textsc{Pochiero}\par
+
+  	\vfill
+
+    % Bottom of the page
+  	{\large A.Y. 2019-2020\par}
+  \end{titlepage}
+}
+
+
+\clearpage
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\section{Introduction} \label{Introduction}
+
+
+
+\end{document}
