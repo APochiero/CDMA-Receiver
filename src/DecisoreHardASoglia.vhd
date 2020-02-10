@@ -13,39 +13,32 @@ entity DecisoreHardASoglia is
 end DecisoreHardASoglia;
 
 
-architecture behavioural of DecisoreHardASoglia is
+architecture behavior of DecisoreHardASoglia is
 	constant SF : integer := 16;
-	type integerVector is array ( 0 to SF-1 ) of integer;
-
-	signal storeSymbols : integerVector;
 	signal waitData : integer  := 0;
-	signal sum : integer range 0 to SF-1:= 0;
-	signal symbol: integer := 0;
+	signal sum : integer := 0;
 	begin 
 		proc : process(clk_DHS)
 		begin 
 			if ( rising_edge(clk_DHS)) then
 				if (reset_DHS = '0' ) then
-					bitstream_DHS <= '0';
-				else 
-					storeSymbols(waitData) <= data_DHS;
-					
-					if ( waitData = 15 ) then
-						-- calcola il bit
-						for i in storeSymbols' range loop
-							sum <= sum + storeSymbols(i);
-						end loop;
-						symbol <= sum/SF;
-						if ( symbol = -1 ) then
-							bitstream_DHS <= '0';
-						else
-							bitstream_DHS <= '1';
-						end if;
-					else 
+					bitstream_DHS <= 'U';
+				else
+					if ( waitData < 16 ) then
+						sum <= sum + data_DHS;
 						waitData <= waitData + 1;
+					else 
+						-- calcola il bit
+						if ( sum >= 0 ) then
+							bitstream_DHS <= '1';
+						else
+							bitstream_DHS <= '0';
+						end if;
+						waitData <= 0;	
+						sum <= 0;					
 					end if;
 				end if;
 			end if;
 		end process proc;
-	end behavioural;
+	end behavior;
 				

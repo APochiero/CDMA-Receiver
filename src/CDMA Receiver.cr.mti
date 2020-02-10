@@ -1,4 +1,12 @@
-{C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/CDMA Receiver.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver.vhd}
+{C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/CDMA Receiver TB 2.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver TB 2.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity TestBench_CDMA_Receiver2
+-- Compiling architecture behavior of TestBench_CDMA_Receiver2
+
+} {} {}} {C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/CDMA Receiver.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -6,7 +14,15 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity CDMA_Receiver
 -- Compiling architecture data_flow of CDMA_Receiver
 
-} {} {}} {C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/counter.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/counter.vhd}
+} {} {}} {C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/CDMA Receiver TB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver TB.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity TestBench_CDMA_Receiver
+-- Compiling architecture behavior of TestBench_CDMA_Receiver
+
+} {} {}} {C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/DecisoreHardASoglia.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\DecisoreHardASoglia.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -14,7 +30,7 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity counter
--- Compiling architecture behavioural of counter
+-- Compiling entity DecisoreHardASoglia
+-- Compiling architecture behavior of DecisoreHardASoglia
 
 } {} {}}

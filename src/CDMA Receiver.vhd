@@ -27,7 +27,7 @@ architecture data_flow of CDMA_Receiver is
 		DHS: DecisoreHardASoglia 
 		port map (
 			clk_DHS => clk_R,
-			reset_DHS => clk_R,
+			reset_DHS => reset_R,
 			data_DHS => data_s,
 			bitstream_DHS => bitstream_R
 		);

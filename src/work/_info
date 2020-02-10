@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Modeltech_pe_edu_10.4a/examples
 Ecdma_receiver
-Z0 w1581332184
+Z0 w1581359842
 Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 Z3 dC:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src
@@ -21,9 +21,9 @@ V?E7GNmdfmPlm?lIF@J`od1
 !s100 RZGd1ePTSHazLSR<eM=m]1
 Z6 OP;C;10.4a;61
 32
-Z7 !s110 1581333515
+Z7 !s110 1581359944
 !i10b 1
-Z8 !s108 1581333515.000000
+Z8 !s108 1581359943.000000
 Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver.vhd|
 Z10 !s107 C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver.vhd|
 !i113 1
@@ -35,8 +35,8 @@ R2
 DEx4 work 13 cdma_receiver 0 22 ?E7GNmdfmPlm?lIF@J`od1
 l26
 L14
-VJzeHeKAAYQEQL4^7B^J`g2
-!s100 kZo<BbYMgU@I@ea0ok7>k0
+V2V^KRC9b3ZF3:fHg_`caf3
+!s100 bKYc]f954J;RKhFjQK4aS3
 R6
 32
 R7
@@ -63,11 +63,11 @@ VhJMRUA7^Fa?=]O=oz4GD`3
 !s100 ?<E]ojaFD_IWTUML[eD@<2
 R6
 32
-R7
+Z19 !s110 1581355717
 !i10b 1
-R8
-Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/counter.vhd|
-Z20 !s107 C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/counter.vhd|
+Z20 !s108 1581355717.000000
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/counter.vhd|
+Z22 !s107 C:/Users/nabow/OneDrive - University of Pisa/Magistrale/Electronics and Communications Systems/CDMA-Receiver/src/counter.vhd|
 !i113 1
 R11
 R12
@@ -84,24 +84,24 @@ ViIUle[K`W<CHX?SnbffLK3
 !s100 ANj2WaDSF;MO9DOGzh9_h1
 R6
 32
-R7
-!i10b 1
-R8
 R19
+!i10b 1
 R20
+R21
+R22
 !i113 1
 R11
 R12
 Edecisorehardasoglia
-Z21 w1581333512
+Z23 w1581359693
 R14
 R15
 R16
 R1
 R2
 R3
-Z22 8C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\DecisoreHardASoglia.vhd
-Z23 FC:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\DecisoreHardASoglia.vhd
+Z24 8C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\DecisoreHardASoglia.vhd
+Z25 FC:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\DecisoreHardASoglia.vhd
 l0
 L6
 VBf9eIM<9UDlUK:WGfiGQ03
@@ -110,9 +110,30 @@ R6
 32
 R7
 !i10b 1
-R8
-Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\DecisoreHardASoglia.vhd|
-Z25 !s107 C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\DecisoreHardASoglia.vhd|
+Z26 !s108 1581359944.000000
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\DecisoreHardASoglia.vhd|
+Z28 !s107 C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\DecisoreHardASoglia.vhd|
+!i113 1
+R11
+R12
+Abehavior
+R14
+R15
+R16
+R1
+R2
+Z29 DEx4 work 19 decisorehardasoglia 0 22 Bf9eIM<9UDlUK:WGfiGQ03
+l20
+L16
+VYhJ]ZM1h0VRB501b<oX311
+!s100 oYCQ50YkVfmXRHQY@h::o1
+R6
+32
+R7
+!i10b 1
+R26
+R27
+R28
 !i113 1
 R11
 R12
@@ -122,18 +143,97 @@ R15
 R16
 R1
 R2
-DEx4 work 19 decisorehardasoglia 0 22 Bf9eIM<9UDlUK:WGfiGQ03
-l24
+R29
+l23
 L16
-Vjc5BIdfGNdNGkF`cG^GlQ0
-!s100 ?MaVheTnQUYoKNQUYmT_n1
+V@@UoLb]3mN`5HJ[kTPCJ>2
+!s100 dcDRgK>I;WPPdk`IfCX>D3
+R6
+32
+!s110 1581341184
+!i10b 1
+!s108 1581341184.000000
+R27
+R28
+!i113 1
+R11
+R12
+w1581341180
+Etestbench_cdma_receiver
+Z30 w1581359712
+R1
+R2
+R3
+Z31 8C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver TB.vhd
+Z32 FC:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver TB.vhd
+l0
+L4
+V>;H4P78aL1AT?FjI7>V[F1
+!s100 7POTXK;OX@ed;5?NPAED62
 R6
 32
 R7
 !i10b 1
-R8
-R24
-R25
+R26
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver TB.vhd|
+Z34 !s107 C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver TB.vhd|
+!i113 1
+R11
+R12
+Abehavior
+R1
+R2
+DEx4 work 23 testbench_cdma_receiver 0 22 >;H4P78aL1AT?FjI7>V[F1
+l37
+L7
+V`74VZd?S2]Fd:K>;Df6PH2
+!s100 nJI8EC0KG74aMGoiC]FfT3
+R6
+32
+R7
+!i10b 1
+R26
+R33
+R34
+!i113 1
+R11
+R12
+Etestbench_cdma_receiver2
+Z35 w1581359942
+R1
+R2
+R3
+Z36 8C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver TB 2.vhd
+Z37 FC:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver TB 2.vhd
+l0
+L4
+VRhY?Sf52JS1b66PTollLN1
+!s100 6JTld[>ASUUmT2cc5VR3?2
+R6
+32
+R7
+!i10b 1
+R26
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver TB 2.vhd|
+Z39 !s107 C:\Users\nabow\OneDrive - University of Pisa\Magistrale\Electronics and Communications Systems\CDMA-Receiver\src\CDMA Receiver TB 2.vhd|
+!i113 1
+R11
+R12
+Abehavior
+R1
+R2
+Z40 DEx4 work 24 testbench_cdma_receiver2 0 22 RhY?Sf52JS1b66PTollLN1
+l37
+L7
+VZaH2;f2R8TYadg3R9;=bI3
+!s100 hjd9ZPzooT`_2SKHTjfnF2
+R6
+32
+R7
+!i10b 1
+R26
+R38
+R39
 !i113 1
 R11
 R12
