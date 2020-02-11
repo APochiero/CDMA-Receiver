@@ -9,31 +9,32 @@ architecture behavior of TestBench_CDMA_Receiver2 is
 	-- Constants
 	constant resetTime : time := 10 ns;
 	constant clockPeriod: time := 10 ns;
-	constant SF : integer := 16;
+	constant SF : positive := 16;
 
-	type integerVector is array ( 0 to SF-1 ) of integer;
+	type integerVector is array ( 0 to SF-1 ) of integer range -SF to SF;
 
 	component CDMA_Receiver 
+		generic ( SF : positive := 16 );
 		port (
 			clk_R : in std_ulogic;
 			reset_R : in std_ulogic;
-			code_word : in integer;
-			chip_stream : in integer;	
+			code_word : in integer range -SF to SF;
+			chip_stream : in integer range -SF to SF;	
 			bitstream_R : out std_ulogic
 		);
 	end component;
 
 	signal clk_tb :std_logic := '0'; -- Clock
 	signal reset_tb: std_logic := '0'; -- Reset
-	signal code_word_tb: integer := 0;
-	signal chip_stream_tb: integer := 0; 
+	signal code_word_tb: integer range -SF to SF := 0;
+	signal chip_stream_tb: integer range -SF to SF := 0; 
 
 	-- Outputs
 	signal bitstream_tb : std_ulogic; -- Received Bit 
 	
 	-- Others
 	signal stopSimulation : std_logic := '1';
-	signal waitData : integer := 0;
+	signal waitData : integer range -SF to SF := 0;
 	begin	
 	
 		-- Clock variation
@@ -43,6 +44,7 @@ architecture behavior of TestBench_CDMA_Receiver2 is
 		reset_tb <= '1' after resetTime;
 		
 		test_CDMA_Receiver2: CDMA_Receiver 
+			generic map ( SF => SF )
 			port map ( clk_tb, reset_tb, code_word_tb, chip_stream_tb, bitstream_tb );
 
 		stim_proc: process

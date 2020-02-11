@@ -1,30 +1,33 @@
 library IEEE;
 use ieee.std_logic_1164.all;
 
-entity CDMA_Receiver is 
+entity CDMA_Receiver is
+	generic ( SF : positive := 16 );
 	port(
 		clk_R : in std_ulogic;
 		reset_R : in std_ulogic;
-		code_word : in integer;
-		chip_stream : in integer;
+		code_word : in integer range -SF to SF ;
+		chip_stream : in integer range -SF to SF;
 		bitstream_R : out std_ulogic
 	);
 end CDMA_Receiver;
 
 architecture data_flow of CDMA_Receiver is
 	component DecisoreHardASoglia is
+		generic ( SF : positive := 16 );
 		port(
 			clk_DHS : in std_ulogic;
 			reset_DHS : in std_ulogic;
-			data_DHS : in integer;
+			data_DHS : in integer range -SF to SF;
 			bitstream_DHS : out std_ulogic
 		);
 	end component;
 	
-	signal data_s : integer;
+	signal data_s : integer range -SF to SF;
 
 	begin
-		DHS: DecisoreHardASoglia 
+		DHS: DecisoreHardASoglia
+		generic map ( SF => SF ) 
 		port map (
 			clk_DHS => clk_R,
 			reset_DHS => reset_R,

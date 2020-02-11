@@ -1,6 +1,5 @@
 library IEEE;
 use ieee.std_logic_1164.all;
-use IEEE.numeric_std.all;
 
 entity TestBench_CDMA_Receiver is
 end TestBench_CDMA_Receiver;
@@ -10,33 +9,31 @@ architecture behavior of TestBench_CDMA_Receiver is
 	-- Constants
 	constant resetTime : time := 10 ns;
 	constant clockPeriod: time := 10 ns;
-	constant SF : integer := 16;
-	constant K: integer := 4;
+	constant SF : positive := 16;
 
-	type integerVector is array ( 0 to SF-1 ) of integer;
+	type integerVector is array ( 0 to SF-1 ) of integer range -SF to SF;
 
 	component CDMA_Receiver 
-		generic ( K : positive := 4 );
-		port(
+		port (
 			clk_R : in std_ulogic;
 			reset_R : in std_ulogic;
-			code_word : in signed( K - 1 downto 0 );
-			chip_stream : in signed( K - 1 downto 0 );
+			code_word : in integer range -SF to SF;
+			chip_stream : in integer range -SF to SF;	
 			bitstream_R : out std_ulogic
 		);
 	end component;
 
 	signal clk_tb :std_logic := '0'; -- Clock
 	signal reset_tb: std_logic := '0'; -- Reset
-	signal code_word_tb: signed( K - 1 downto 0 ) := ( others => '0' );
-	signal chip_stream_tb: signed( K - 1 downto 0 ) := ( others => '0' ); 
+	signal code_word_tb: integer range -SF to SF := 0;
+	signal chip_stream_tb: integer range -SF to SF := 0; 
 
 	-- Outputs
 	signal bitstream_tb : std_ulogic; -- Received Bit 
 	
 	-- Others
 	signal stopSimulation : std_logic := '1';
-	signal waitData : signed( K - 1 downto 0 ) := ( others => '0' );
+	signal waitData : integer range -SF to SF := 0;
 	begin	
 	
 		-- Clock variation
@@ -46,23 +43,16 @@ architecture behavior of TestBench_CDMA_Receiver is
 		reset_tb <= '1' after resetTime;
 		
 		test_CDMA_Receiver: CDMA_Receiver 
-			generic map ( K )
-			port map ( clk_R => clk_tb, 
-				   reset_R => reset_tb,
-				   code_word => code_word_tb,
-				   chip_stream => chip_stream_tb,
-				   bitstream_R => bitstream_tb 
-			);
-		
+			port map ( clk_tb, reset_tb, code_word_tb, chip_stream_tb, bitstream_tb );
 
-		stim_proc: process 
+		stim_proc: process
 			constant code_word_1 : integerVector := ( 1,1,-1,1,-1,-1,-1,1,1,-1,-1,-1,1,1,-1,1);
 			constant interference_pattern: integerVector := (0,2,-2,2,-2,0,0,2,0,-2,0,0,2,0,0,2);
 		begin
 			wait until reset_tb = '1';
 			for i in interference_pattern' range loop
-				code_word_tb <= to_signed(code_word_1(i), K );
-				chip_stream_tb <= to_signed(interference_pattern(i), K);
+				code_word_tb <= code_word_1(i);
+				chip_stream_tb <= interference_pattern(i);
 				wait until rising_edge(clk_tb);				
 			end loop;
 			stopSimulation <= '0';

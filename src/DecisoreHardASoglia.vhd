@@ -4,19 +4,19 @@ use IEEE.NUMERIC_STD.ALL;
 use ieee.std_logic_unsigned.all;
 
 entity DecisoreHardASoglia is 
+	generic ( SF : positive := 16 );
 	port(
 		clk_DHS : in std_ulogic;
 		reset_DHS : in std_ulogic;
-		data_DHS : in integer;
+		data_DHS : in integer range -SF to SF;
 		bitstream_DHS : out std_ulogic
 	);
 end DecisoreHardASoglia;
 
 
 architecture behavior of DecisoreHardASoglia is
-	constant SF : integer := 16;
-	signal waitData : integer  := 0;
-	signal sum : integer := 0;
+	signal waitData : integer range -SF to SF  := 0;
+	signal sum : integer range -SF to SF := 0;
 	begin 
 		proc : process(clk_DHS)
 		begin 

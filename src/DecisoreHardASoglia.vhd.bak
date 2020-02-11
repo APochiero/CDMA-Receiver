@@ -1,23 +1,23 @@
 library IEEE;
 use ieee.std_logic_1164.all;
-use IEEE.numeric_std.all;
+use IEEE.NUMERIC_STD.ALL;
 use ieee.std_logic_unsigned.all;
 
 entity DecisoreHardASoglia is 
-	generic ( K : positive := 4 );
+	generic ( SF : positive := 16 );
 	port(
 		clk_DHS : in std_ulogic;
 		reset_DHS : in std_ulogic;
-		data_DHS : in signed( K - 1 downto 0 );
+		data_DHS : in integer range -SF to SF;
 		bitstream_DHS : out std_ulogic
 	);
 end DecisoreHardASoglia;
 
 
 architecture behavior of DecisoreHardASoglia is
-	constant SF : integer := 16;
-	signal waitData : signed( K - 1 downto 0 ) := ( others => '0' );
-	signal sum : signed( K - 1 downto 0 ) := ( others => '0' );
+	constant SF : positive := 16;
+	signal waitData : integer range -SF to SF  := 0;
+	signal sum : integer range -SF to SF := 0;
 	begin 
 		proc : process(clk_DHS)
 		begin 
@@ -25,7 +25,7 @@ architecture behavior of DecisoreHardASoglia is
 				if (reset_DHS = '0' ) then
 					bitstream_DHS <= 'U';
 				else
-					if ( waitData < SF ) then
+					if ( waitData < 16 ) then
 						sum <= sum + data_DHS;
 						waitData <= waitData + 1;
 					else 
@@ -35,7 +35,8 @@ architecture behavior of DecisoreHardASoglia is
 						else
 							bitstream_DHS <= '0';
 						end if;
-						waitData <= (others => '0' );					
+						waitData <= 0;	
+						sum <= 0;					
 					end if;
 				end if;
 			end if;
