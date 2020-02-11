@@ -206,16 +206,89 @@
     Come si nota dalla tabella, i ricevitori sono in grado di ricostruire il bit trasmesso originariamente ( primo utente
      $1$, secondo utente $0$) come specificato in \ref{Esempio} .
 
-
 \section{Architettura}
   \subsection{Diagramma a Blocchi}
+      \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/Architettura.pdf}
+      \caption{ Diagramma a blocchi dell'architettura usata }
+      \label{fig:Architettura}
+    \end{figure}
   \subsection{Implementazione}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/CDMAReceiver.png}
+      \caption{Descrizione VHDL CDMA Receiver}
+      \label{fig:vhdl:cdma}
+    \end{figure}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/DecisoreHardASoglia.png}
+      \caption{Descrizione VHDL Decisore Hard A Soglia}
+      \label{fig:vhdl:DHS}
+    \end{figure}  
+
   \subsection{Test-plan}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/TB1.png}
+      \label{fig:vhdl:tb1}
+    \end{figure}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/TB1.1.png}
+      \caption{Testbench 1: il trasmettitore invia il bit '1'}
+      \label{fig:vhdl:tb11}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/Wave1.png}
+      \caption{Simulazione ricezione 1}
+      \label{fig:vhdl:wave1}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/TB2.png}
+      \caption{Testbench 2: il trasmettitore invia il bit '0'}
+      \label{fig:vhdl:tb2}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/Wave2.png}
+      \caption{Simulazione ricezione 0}
+      \label{fig:vhdl:wave2}
+    \end{figure}
 \section{Sintesi} 
   \subsection{Utilizzo}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/Utilizzo.png}
+      \caption{Percentuale di utilizzo}
+      \label{fig:utilizzo}
+    \end{figure}
   \subsection{Massima frequenza di utilizzo}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/FrequenzaMassima.png}
+      \caption{Timing}
+      \label{fig:timing}
+    \end{figure}
   \subsection{Cammino Critico}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/CamminoCritico.png}
+      \caption{Cammino Critico}
+      \label{fig:critico}
+    \end{figure}
   \subsection{Consumo di Potenza}
-  \subsection{Warnings}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{img/Power.png}
+      \caption{Percentuale Consumo di Potenza}
+      \label{fig:power}
+    \end{figure}
 \section{Conclusioni}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.7)  11 FEB 2020 12:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.7)  11 FEB 2020 18:30
 entering extended mode
 **./main.tex
 (main.tex
@@ -1290,7 +1290,7 @@ LaTeX Info: Redefining \nameref on input line 74.
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-<img/unipi.pdf, id=94, 566.115pt x 302.12875pt>
+<img/unipi.pdf, id=90, 566.115pt x 302.12875pt>
 File: img/unipi.pdf Graphic file (type pdf)
 <use img/unipi.pdf>
 Package pdftex.def Info: img/unipi.pdf  used on input line 80.
@@ -1299,12 +1299,12 @@ Package pdftex.def Info: img/unipi.pdf  used on input line 80.
 
 {C:/Users/nabow/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./img/unipi
 .pdf>] (main.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
 
 ("C:\Users\nabow\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
 ("C:\Users\nabow\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
@@ -1319,7 +1319,7 @@ l.100 \clearpage
                  [1
 
 ]
-<img/Generation_of_CDMA.svg.png, id=127, 1927.2pt x 798.985pt>
+<img/Generation_of_CDMA.svg.png, id=122, 1927.2pt x 798.985pt>
 File: img/Generation_of_CDMA.svg.png Graphic file (type png)
 <use img/Generation_of_CDMA.svg.png>
 Package pdftex.def Info: img/Generation_of_CDMA.svg.png  used on input line 120
@@ -1337,24 +1337,90 @@ Overfull \hbox (9.79575pt too wide) in paragraph at lines 198--204
  [][] 
  []
 
-[2] [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 221.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 221.
+[2]
+<img/Architettura.pdf, id=147, 441.56969pt x 254.8722pt>
+File: img/Architettura.pdf Graphic file (type pdf)
+<use img/Architettura.pdf>
+Package pdftex.def Info: img/Architettura.pdf  used on input line 213.
+(pdftex.def)             Requested size: 483.69687pt x 279.18967pt.
+<img/CDMAReceiver.png, id=148, 391.4625pt x 408.3255pt>
+File: img/CDMAReceiver.png Graphic file (type png)
+<use img/CDMAReceiver.png>
+Package pdftex.def Info: img/CDMAReceiver.png  used on input line 220.
+(pdftex.def)             Requested size: 483.69687pt x 504.56137pt.
+<img/DecisoreHardASoglia.png, id=149, 453.49425pt x 438.438pt>
+File: img/DecisoreHardASoglia.png Graphic file (type png)
+<use img/DecisoreHardASoglia.png>
+Package pdftex.def Info: img/DecisoreHardASoglia.png  used on input line 226.
+(pdftex.def)             Requested size: 483.69687pt x 467.6589pt.
+ [3 <./img/Architettura.pdf
+
+pdfTeX warning: miktex-pdftex.exe (file ./img/Architettura.pdf): PDF inclusion:
+ invalid other resource which is no dict (key 'ProcSets', type <array>); ignore
+d.
+>] [4 <./img/CDMAReceiver.png>]
+<img/TB1.png, id=176, 473.3685pt x 426.393pt>
+File: img/TB1.png Graphic file (type png)
+<use img/TB1.png>
+Package pdftex.def Info: img/TB1.png  used on input line 234.
+(pdftex.def)             Requested size: 483.69687pt x 435.71536pt.
+<img/TB1.1.png, id=177, 501.67426pt x 218.0145pt>
+File: img/TB1.1.png Graphic file (type png)
+<use img/TB1.1.png>
+Package pdftex.def Info: img/TB1.1.png  used on input line 239.
+(pdftex.def)             Requested size: 483.69687pt x 210.20634pt.
+ [5 <./img/DecisoreHardASoglia.png>] [6 <./img/TB1.png>]
+<img/Wave1.png, id=191, 603.4545pt x 154.77824pt>
+File: img/Wave1.png Graphic file (type png)
+<use img/Wave1.png>
+Package pdftex.def Info: img/Wave1.png  used on input line 246.
+(pdftex.def)             Requested size: 483.69687pt x 124.06364pt.
+<img/TB2.png, id=192, 495.0495pt x 208.98074pt>
+File: img/TB2.png Graphic file (type png)
+<use img/TB2.png>
+Package pdftex.def Info: img/TB2.png  used on input line 253.
+(pdftex.def)             Requested size: 483.69687pt x 204.19385pt.
+<img/Wave2.png, id=193, 614.295pt x 154.176pt>
+File: img/Wave2.png Graphic file (type png)
+<use img/Wave2.png>
+Package pdftex.def Info: img/Wave2.png  used on input line 260.
+(pdftex.def)             Requested size: 483.69687pt x 121.4001pt.
+ [7 <./img/TB1.1.png> <./img/Wave1.png> <./img/TB2.png>]
+<img/Utilizzo.png, id=204, 398.6895pt x 213.79875pt>
+File: img/Utilizzo.png Graphic file (type png)
+<use img/Utilizzo.png>
+Package pdftex.def Info: img/Utilizzo.png  used on input line 268.
+(pdftex.def)             Requested size: 483.69687pt x 259.38235pt.
+<img/FrequenzaMassima.png, id=205, 613.0905pt x 148.1535pt>
+File: img/FrequenzaMassima.png Graphic file (type png)
+<use img/FrequenzaMassima.png>
+Package pdftex.def Info: img/FrequenzaMassima.png  used on input line 275.
+(pdftex.def)             Requested size: 483.69687pt x 116.88852pt.
+<img/CamminoCritico.png, id=206, 822.07124pt x 250.536pt>
+File: img/CamminoCritico.png Graphic file (type png)
+<use img/CamminoCritico.png>
+Package pdftex.def Info: img/CamminoCritico.png  used on input line 282.
+(pdftex.def)             Requested size: 483.69687pt x 147.41354pt.
+ [8 <./img/Wave2.png> <./img/Utilizzo.png> <./img/FrequenzaMassima.png>]
+<img/Power.png, id=217, 479.99326pt x 262.581pt>
+File: img/Power.png Graphic file (type png)
+<use img/Power.png>
+Package pdftex.def Info: img/Power.png  used on input line 289.
+(pdftex.def)             Requested size: 483.69687pt x 264.61972pt.
+ [9 <./img/CamminoCritico.png> <./img/Power.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 294.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 294.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 221.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 221.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 294.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 294.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1797A716A862B01D0C841E81F0340C7D;956.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+(rerunfilecheck)             Checksum: D5C69012796196B9EEF3DF09FC374189;898.
  ) 
 Here is how much of TeX's memory you used:
- 40620 strings out of 492449
- 876756 string characters out of 3119994
- 961185 words of memory out of 3000000
- 44410 multiletter control sequences out of 15000+200000
+ 40720 strings out of 492449
+ 878556 string characters out of 3119994
+ 961935 words of memory out of 3000000
+ 44481 multiletter control sequences out of 15000+200000
  539918 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,10n,79p,1606b,403s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1373,9 +1439,9 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/nabow/AppData/Local/
 Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/nabow/A
 ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 >
-Output written on main.pdf (5 pages, 212244 bytes).
+Output written on main.pdf (11 pages, 606225 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 26 named destinations out of 1000 (max. 500000)
- 247 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 277 PDF objects out of 1000 (max. 8388607)
+ 43 named destinations out of 1000 (max. 500000)
+ 299 words of extra memory for PDF output out of 10000 (max. 10000000)
 
