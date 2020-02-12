@@ -21,6 +21,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{siunitx}
 
 % Graphic packages
 \usepackage{graphicx}
@@ -73,7 +74,7 @@
 
 \begin{document}
 \pagenumbering{gobble}
-
+\setstretch{1.2}
 {\setstretch{1.0}
   \begin{titlepage}
   	\centering
@@ -104,10 +105,10 @@
   \subsection{Descrizione del Problema}
   Il collegamento broadcast può avere più nodi trasmittenti e riceventi connessi allo stesso canale broadcast condiviso. 
   In uno scenario del genere si pone il problema di come coordinare l'accesso di più nodi trasmittenti e riceventi in un
-  canale broadcast condiviso, ossia il problema dell'accesso multiplo. Dato che tutti i nodi sono in grado di trasmettere
+  stesso canale, ossia il problema dell'accesso multiplo. Dato che tutti i nodi sono in grado di trasmettere
   frame, è possibile che due o più lo facciano nello stesso istante, per cui tutti i nodi riceveranno contemporaneamente
   più frame. Tra questi si genera una collisione a causa della quale nessuno dei nodi riceventi riuscirà a interpretare
-  i frame.
+  i frame. \'E necessario utilizzare dei protocolli al fine di regolare gli accessi al mezzo condiviso.
   \subsection{CDMA}
     Il protocollo \textbf{CDMA} ( \textit{code division multiple access} ) è un protocollo a suddivisione del canale in 
     cui i vari utenti possono trasmettere contemporaneamente, causando quindi collisioni e interferenze tra loro, tuttavia
@@ -117,7 +118,7 @@
     per ogni utente, di periodo $T_c$ ( \textit{chip period} ) dove $T_c \ll T_b$ come si può vedere in Figura \ref{fig:Signals}.
     \begin{figure}[H]
       \centering
-      \includegraphics[width=\textwidth]{img/Generation_of_CDMA.svg.png}
+      \includegraphics[scale=0.2]{img/Generation_of_CDMA.svg.png}
       \caption{Generazione del segnale CDMA trasmesso }
       \label{fig:Signals}
     \end{figure}
@@ -160,11 +161,11 @@
     in un ricevitore CDMA. Facendo riferimento ai codici ( \textit{code words} ) della tabella \ref{tab:orthogonal vectors},
     si è considerato uno scenario in cui il primo utente trasmette il simbolo $1$, mentre un secondo utente trasmette il 
     simbolo $-1$. Per le proprietà fisiche dell'interferenza, se 2 segnali interferenti sono in fase, essi si sommano e si
-    crea un segnale di ampiezza doppia, altrimenti si sottraggono e creano un segnale con un'ampiezza pari alla differenza 
+    crea un segnale la cui ampiezza è la somma delle ampiezze, altrimenti si sottraggono e creano un segnale con un'ampiezza pari alla differenza 
     delle ampiezze. Nel mondo digitale, questo comportamento può essere rappresentato dalla somma componente per componente
     dei vettori trasmessi.
 
-    Nella seguente tabella \ref{tab:interference pattern} il simbolo trasmesso è modulato con la rispettiva \textit{code word}, ottenendo un
+    Nella seguente tabella \ref{tab:interference pattern}, il simbolo trasmesso è modulato con la rispettiva \textit{code word}, ottenendo un
     \textit{chip stream} per ogni utente. Ogni chip stream trasmesso interferisce con gli altri trasmessi nello stesso 
     istante, formando l'\textit{interference pattern}, cioè il segnale realemente ricevuto dai ricevitori.
 
@@ -182,7 +183,8 @@
       \label{tab:interference pattern}
     \end{table}
 
-    Per ricostruire il segnale, moltiplica ogni componente dell' \textit{interference pattern} con la propria \textit{code
+    \subsubsection{Ricostruzione del segnale}\label{ricostruzione}
+    Per ricostruire il segnale, un ricevitore moltiplica ogni componente dell'\textit{interference pattern} con la propria \textit{code
     word}. Il vettore $r$ ottenuto è dato in input ad un \textit{Decisore Hard A Soglia} il quale decide il bit da porre in 
     uscita. La decisione è presa nel seguente modo:
 
@@ -208,19 +210,36 @@
 
 \section{Architettura}
   \subsection{Diagramma a Blocchi}
+    Nella Figura \ref{fig:Architettura} è rappresentato il diagramma a blocchi per il ricevitore CDMA.
       \begin{figure}[H]
       \centering
-      \includegraphics[width=\textwidth]{img/Architettura.pdf}
+      \includegraphics[scale=0.75]{img/Architettura.pdf}
       \caption{ Diagramma a blocchi dell'architettura usata }
       \label{fig:Architettura}
     \end{figure}
+    In particolare vengono effettuate le operazioni descritte in \ref{ricostruzione} in modo tale da risalire al bit 
+    trasmesso. Per quanto riguarda il \textit{clock} questo ha una frequenza pari al \textit{chip rate}, cioè la frequenza
+    $\frac{1}{T_c}$ con cui variano i bit della \textit{code word}.
   \subsection{Implementazione}
+    Per quanto riguarda l'implementazione, il Ricevitore CDMA è descritto tramite un misto tra l'architettura strutturale
+    e dataflow. Infatti, questo si compone di un \textit{Decisore Hard A Soglia} il cui ingresso segue sempre il 
+    prodotto tra la propria \textit{code word} e il \textit{chip stream} ricevuto o \textit{interference pattern} secondo
+    quanto detto in \ref{tab:interference pattern}.
+    Questi ultimi sono stati rappresentati tramite degli interi che di 
+    default sono su 32bit, ma per rendere più efficiente il sistema, è stato specificato il range di valori, in modo tale
+    che il sintetizzatore faccia le dovute ottimizzazioni. 
     \begin{figure}[H]
       \centering
       \includegraphics[width=\textwidth]{img/CDMAReceiver.png}
       \caption{Descrizione VHDL CDMA Receiver}
       \label{fig:vhdl:cdma}
     \end{figure}
+
+    Il \textit{Decisore Hard A Soglia} è stato descritto tramite l'architettura di tipo Behavioral in modo tale da 
+    specificare cosa accade quando arriva il fronte di salita del clock. Superata la fase iniziale di reset, il Decisore
+    effettua la somma dei dati ricevuti ingresso ad ogni ciclo di clock, tenendo nel segnale \textit{waitData} quanti dati
+    ha già contato. Un volta sommati \textit{SF} dati si può procedere con la decisione seguendo quanto descritto in 
+    \ref{ricostruzione}.
     \begin{figure}[H]
       \centering
       \includegraphics[width=\textwidth]{img/DecisoreHardASoglia.png}
@@ -229,9 +248,19 @@
     \end{figure}  
 
   \subsection{Test-plan}
+    Per testare il ricevitore sono stati creati 2 testbench che seguono l'esempio descritto in \ref{Esempio}. In particolare,
+    è stato ricreato lo scenario in cui 2 utenti trasmettono nello stesso istante rispettivamente il bit $1$ e il bit $0$ 
+    mentre 2 ricevitori con le stesse code word dei trasmettitori stanno in ascolto.
+    I test devono verificare che i ricevitori riescano a ricevere i bit giusti nonostante l'intereferenza. Quindi:
+    \begin{itemize}
+      \item Ricevitore 1 deve decidere il bit $1$
+      \item Ricevitore 2 deve decidere il bit $0$
+    \end{itemize}
+    \subsubsection{Testbench 1}
+    Entrambi i test sono stati effettuati con un periodo di clock pari a 10 ns, quindi una frequenza di \SI{100}{\mega\hertz}.
     \begin{figure}[H]
       \centering
-      \includegraphics[width=\textwidth]{img/TB1.png}
+      \includegraphics[scale=0.9]{img/TB1.png}
       \label{fig:vhdl:tb1}
     \end{figure}
     \begin{figure}[H]
@@ -247,10 +276,14 @@
       \caption{Simulazione ricezione 1}
       \label{fig:vhdl:wave1}
     \end{figure}
+    Come si può vedere in \ref{fig:vhdl:wave1}, l'uscita \textit{bitstream} del ricevitore viene settata ad 1 una volta 
+    che tutto il chip stream è stato ricevuto.
 
+    \subsubsection{Testbench 2}
+    Di seguito è riportata solo la parte relativo allo Stimulus process del secondo test dato che il resto è uguale al primo.
     \begin{figure}[H]
       \centering
-      \includegraphics[width=\textwidth]{img/TB2.png}
+      \includegraphics[scale=0.7]{img/TB2.png}
       \caption{Testbench 2: il trasmettitore invia il bit '0'}
       \label{fig:vhdl:tb2}
     \end{figure}
@@ -261,7 +294,14 @@
       \caption{Simulazione ricezione 0}
       \label{fig:vhdl:wave2}
     \end{figure}
+    Il test conferma che il ricevitore 2 riesce decidere il bit 0 a partire dallo stesso chip stream ricevuto dal primo 
+    ricevitore. 
+
 \section{Sintesi} 
+  La sintesi è stata effettuta tramite il tool Vivado applicando come unico constraint:
+  \begin{itemize}
+    \item{Clock: 10ns}
+  \end{itemize}
   \subsection{Utilizzo}
     \begin{figure}[H]
       \centering
@@ -269,6 +309,8 @@
       \caption{Percentuale di utilizzo}
       \label{fig:utilizzo}
     \end{figure}
+    Le risorse utilizzate sono poche rispetto a quelle disponibili. Il maggior utilizzo si ha sull'I/O in quanto vengono 
+    utilizzati 8 pin su 100 disponibili ( 3 chipstream, 2 code word, 1 clock, 1 /reset, 1 bitstream ).
   \subsection{Massima frequenza di utilizzo}
     \begin{figure}[H]
       \centering
@@ -276,7 +318,11 @@
       \caption{Timing}
       \label{fig:timing}
     \end{figure}
+    Il ricevitore così descritto è in grado di rispettare il vincolo sul clock imposto ottenendo un \textbf{WNS} di \SI{8.116}{\nano\second},
+    quindi è possibile tollerare una frequenza massima pari a:
+    $$ f_{max} = \frac{1}{T'_{clock}} = \frac{1}{T_{clock}-T_{slack}} =  \text{\SI{530.78}{\mega\hertz}} $$  
   \subsection{Cammino Critico}
+    Il cammino critico che produce il $T_{slack}$ mostrato in \ref{fig:timing} è il seguente:
     \begin{figure}[H]
       \centering
       \includegraphics[width=\textwidth]{img/CamminoCritico.png}
@@ -284,6 +330,8 @@
       \label{fig:critico}
     \end{figure}
   \subsection{Consumo di Potenza}
+    Dal consumo di potenza si può notare quanto l'algoritmo implementato ha necessità computazionali basse, dato che la 
+    maggior parte della potenza è richiesta a mantenere attivo il dispositivo più che ad effettuare le dovute operazioni.
     \begin{figure}[H]
       \centering
       \includegraphics[width=\textwidth]{img/Power.png}
@@ -291,4 +339,10 @@
       \label{fig:power}
     \end{figure}
 \section{Conclusioni}
+  In questo progetto è stato descritto, implementato e sintetizzato un Ricevitore CDMA che riceve un segnale, somma
+  dei segnali trasmessi in quell'istante, ma è in grado comunque di ricostruire il segnale trasmesso dal suo interlocutore
+  nonostante le interferenze. I test hanno verificato il corretto funzionamento dei ricevitori, andando a valutare il 
+  comportamento in uno scenario realistico. Inoltre, la sintesi ha mostrato che il dispositivo è in grado di sopportare 
+  frequenze fino a \SI{530.78}{\mega\hertz} quindi a tale frenqueza e considerando uno \textit{Spreading Factor} pari a 16,
+  l'intera sequenza di \textit{chip stream} è ricevuta in $T'_{clock}*16 = \text{\SI{30.11}{\nano\second}}$. 
 \end{document}

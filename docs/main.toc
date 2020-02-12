@@ -5,13 +5,16 @@
 \contentsline {subsection}{\numberline {1.2}CDMA}{1}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Applicazioni}{2}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Esempio utilizzato}{2}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Ricostruzione del segnale}{3}{subsubsection.1.4.1}%
 \contentsline {section}{\numberline {2}Architettura}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Diagramma a Blocchi}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Implementazione}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Test-plan}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Test-plan}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Testbench 1}{6}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Testbench 2}{7}{subsubsection.2.3.2}%
 \contentsline {section}{\numberline {3}Sintesi}{8}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Utilizzo}{8}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Massima frequenza di utilizzo}{8}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Cammino Critico}{9}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Consumo di Potenza}{9}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Conclusioni}{9}{section.4}%
+\contentsline {section}{\numberline {4}Conclusioni}{10}{section.4}%
